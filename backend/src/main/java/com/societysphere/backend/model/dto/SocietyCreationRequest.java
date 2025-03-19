@@ -18,6 +18,7 @@ import java.io.Serializable;
 public class SocietyCreationRequest implements Serializable {
 
     private String societyName;
+    private Integer societyAdminId;
     private String societyAdminName;
     private String collegeAdminName;
     private String collegeAdminEmail;

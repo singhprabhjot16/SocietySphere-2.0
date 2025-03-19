@@ -8,6 +8,7 @@ public class AppConstants {
     public static final String YES = "Y";
     public static final String NO = "N";
     public static final String API_SEPARATOR = "/";
+    public static final String CREATED = "CREATED";
 
     // Integer Constants
     public static final Integer ZERO = 0;

@@ -6,12 +6,20 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.Date;
+
 @Log4j2
 @Service
 public class AppUtils {
 
     @Autowired
     private JavaMailSender mailSender;
+
+    public Date getCurrentTime() {
+        Instant instant = Instant.now();
+        return Date.from(instant);
+    }
 
     public Boolean sendEmail(String from, String to, String subject, String body) {
         try {
