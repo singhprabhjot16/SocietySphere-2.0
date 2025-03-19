@@ -1,29 +1,33 @@
 package com.societysphere.backend.controller;
 
+import com.societysphere.backend.model.dto.SocietyCreationRequest;
 import com.societysphere.backend.model.dto.SocietyDetailDTO;
 import com.societysphere.backend.service.SocietyService;
 import com.societysphere.backend.utilities.AppConstants;
 import jakarta.annotation.Resource;
 
-import org.apache.logging.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.print.attribute.standard.Media;
-import java.awt.*;
-
+@Log4j2
 @Resource
 @RestController
-@RequestMapping(value = "api" + AppConstants.API_SEPARATOR)
+@RequestMapping(value = "api" + AppConstants.API_SEPARATOR + "society" + AppConstants.API_SEPARATOR)
 public class SocietyResource {
 
     @Autowired
     private SocietyService societyService;
+
+    @RequestMapping(method = RequestMethod.POST, value = "create-request")
+    public Boolean createSocietyCreationRequest(@RequestBody SocietyCreationRequest request) {
+        log.info("Request to create society with society name: {}", request.getSocietyName());
+        return societyService.createSocietyCreationRequest(request);
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "get")
     public SocietyDetailDTO getSocietyDetail(@RequestParam Integer societyId) {
