@@ -1,4 +1,4 @@
-package com.societysphere.backend.model.dto;
+package com.societysphere.backend.model.dto.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

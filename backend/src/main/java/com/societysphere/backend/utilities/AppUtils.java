@@ -31,7 +31,7 @@ public class AppUtils {
             mailSender.send(message);
             return Boolean.TRUE;
         } catch (Exception e) {
-            log.info("Exception occured while sending mail", e);
+            log.error("Exception occurred while sending mail", e);
             return Boolean.FALSE;
         }
     }

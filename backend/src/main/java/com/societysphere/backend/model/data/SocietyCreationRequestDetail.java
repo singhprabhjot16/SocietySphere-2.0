@@ -39,6 +39,9 @@ public class SocietyCreationRequestDetail implements Serializable {
     @Column(name = "REQUESTED_TO", nullable = false)
     private Integer requestedTo;
 
+    @Column(name = "SOCIETY_NAME", nullable = false)
+    private String societyName;
+
     @Column(name = "REQUEST_TIMESTAMP", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date requestTimestamp;
