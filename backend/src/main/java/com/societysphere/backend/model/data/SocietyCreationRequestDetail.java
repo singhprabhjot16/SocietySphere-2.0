@@ -50,6 +50,10 @@ public class SocietyCreationRequestDetail implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date approvalTimestamp;
 
+    @Column(name = "REJECTION_TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date rejectionTimestamp;
+
     @Column(name = "STATUS", nullable = false)
     private String status;
 

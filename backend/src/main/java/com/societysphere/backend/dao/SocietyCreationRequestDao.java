@@ -14,9 +14,15 @@ public interface SocietyCreationRequestDao extends JpaRepository<SocietyCreation
     @Query("SELECT r FROM SocietyCreationRequestDetail r " +
             "WHERE r.requestedBy = :requestedBy " +
             "AND r.requestedTo = :requestedTo " +
-            "AND r.societyName = :societyName")
+            "AND r.societyName = :societyName " +
+            "AND r.status NOT IN :statuses")
     List<SocietyCreationRequestDetail> findExistingRequests(@Param("requestedBy") Integer requestedBy,
                                                             @Param("requestedTo") Integer requestedTo,
-                                                            @Param("societyName") String societyName);
+                                                            @Param("societyName") String societyName,
+                                                            @Param("statuses") List<String> statuses);
+
+    @Query("SELECT r FROM SocietyCreationRequestDetail r " +
+            "WHERE r.requestedBy = :requestedBy")
+    List<SocietyCreationRequestDetail> getAllRequests(@Param("requestedBy") Integer requestedBy);
 
 }
